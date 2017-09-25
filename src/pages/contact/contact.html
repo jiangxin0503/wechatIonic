@@ -1,17 +1,60 @@
+<!--
+  Generated template for the ContactPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Contact
-    </ion-title>
+
+  <ion-navbar color="dark">
+    <ion-title>{{title}}</ion-title>
+	<ion-buttons end>
+      <button ion-button icon-only>
+        <ion-icon name="ios-person-add-outline"></ion-icon>
+      </button>  
+    </ion-buttons>   
   </ion-navbar>
 </ion-header>
 
-<ion-content>
-  <ion-list>
-    <ion-list-header>Follow us on Twitter</ion-list-header>
-    <ion-item>
-      <ion-icon name="ionic" item-left></ion-icon>
-      @ionicframework
-    </ion-item>
-  </ion-list>
+
+<ion-content class="bg-color">
+	<ion-searchbar></ion-searchbar>
+	<ion-list>
+		<button ion-item>
+		    <ion-avatar item-start>
+		       <img src="../../assets/icon/new_friend.png">
+		    </ion-avatar>
+	  		新的朋友
+  		</button>
+  		<button ion-item>
+		    <ion-avatar item-start>
+		       <img src="../../assets/icon/group.png">
+		    </ion-avatar>
+	  		群聊
+  		</button>
+  		<button ion-item>
+		    <ion-avatar item-start>
+		       <img src="../../assets/icon/tag.png">
+		    </ion-avatar>
+	  		标签
+  		</button>
+  		<button ion-item>
+		    <ion-avatar item-start>
+		       <img src="../../assets/icon/public_contact.png">
+		    </ion-avatar>
+	  		公众号
+  		</button>
+
+
+
+	    <ion-item-group>	
+	    	<ion-item-divider color="light">J</ion-item-divider>
+	  		<button ion-item *ngFor="let item of contacts">
+			    <ion-avatar item-start>
+			       <img src="{{item.user.picture.thumbnail}}">
+			    </ion-avatar>
+			    {{item.user.name.last + ' ' + item.user.name.first}}
+		    </button>
+	  	</ion-item-group>
+	</ion-list>
 </ion-content>
