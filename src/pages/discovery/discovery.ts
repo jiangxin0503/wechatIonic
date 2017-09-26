@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, App } from 'ionic-angular';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
+import { ScanResultPage } from '../scan-result/scan-result';
 
 /**
  * Generated class for the DiscoveryPage page.
@@ -19,7 +20,8 @@ export class DiscoveryPage {
   title: string = "发现";
   constructor(public navCtrl: NavController, 
   			  public navParams: NavParams,
-  			  private barcodeScanner: BarcodeScanner) {
+  			  private barcodeScanner: BarcodeScanner,
+          public appCtrl: App) {
   }
 
   ionViewDidLoad() {
@@ -27,12 +29,24 @@ export class DiscoveryPage {
   }
 
   onScan() {
-	this.barcodeScanner.scan().then((barcodeData) => {
-	 // Success! Barcode data is here
-	 console.log(barcodeData)
-	}, (err) => {
-	   console.log(err);
-	});
+  	this.barcodeScanner.scan().then((barcodeData) => {
+  	 // Success! Barcode data is here
+  	 console.log(barcodeData)
+     this.appCtrl.getRootNav().push(ScanResultPage,{
+         scanResult:barcodeData
+       })
+  	}, (err) => {
+  	   console.log(err);
+       this.appCtrl.getRootNav().push(ScanResultPage,{
+         scanResult:  {
+             format: "failed",
+             cancelled: false,
+             text: '失败的操作'
+           }
+
+       })
+  	});
+
   }
 
 }

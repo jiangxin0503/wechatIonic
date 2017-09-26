@@ -20,7 +20,9 @@
           <img src="{{contact.user.picture.medium}}">
         </ion-avatar>
         <h2>
-            {{contact.user.name.last + ' ' + contact.user.name.first}}
+            {{contact.user.name.last | firstCharFormat}}
+            {{' '}}
+            {{contact.user.name.first | firstCharFormat}}
             <ion-icon name="{{contact.user.gender}}" color = "danger"></ion-icon>
         </h2>
         <p class="top-item-account">账号:{{contact.user.email}}</p>
@@ -38,7 +40,10 @@
 
   <ion-list>
       <ion-item>
-         {{'地区  ' +contact.user.location.state + ' ' + contact.user.location.city}}
+         {{'地区  '}}
+         {{ contact.user.location.state | firstCharFormat }}
+         {{' '}}
+         {{ contact.user.location.city | firstCharFormat }}
       </ion-item>
       <button ion-item class="item-album">
           个人相册

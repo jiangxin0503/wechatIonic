@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
+import { Platform } from 'ionic-angular';
 import 'rxjs/add/operator/toPromise';
 
 /*
@@ -11,9 +12,23 @@ import 'rxjs/add/operator/toPromise';
 @Injectable()
 export class ContactsProvider {
 
-  private baseUrl: string = '../../assets/data/friends.json';
-  constructor(public http: Http) {
-    console.log('Hello ContactsProvider Provider');
+  private baseUrl: string;
+
+  constructor(public http: Http,
+              private platform: Platform) {
+
+    if( platform.is('android') ) {
+      this.baseUrl = '/android_asset/www/assets/data/friends.json'
+    }
+
+    if( platform.is('ios') ) {
+
+    }
+
+    if( platform.is('core') ) {
+      this.baseUrl = '../../assets/data/friends.json';
+    }
+
   }
 
   getAllContacts(): Promise<Object[]>{

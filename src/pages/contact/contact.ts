@@ -31,8 +31,7 @@ export class ContactPage {
     this.contactsProvider
         .getAllContacts()
         .then(result=> 
-          {this.contacts = result;
-           console.log(result)});
+          {this.contacts = result});
   }
 
 

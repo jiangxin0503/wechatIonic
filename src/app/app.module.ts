@@ -7,7 +7,10 @@ import { DiscoveryPage } from '../pages/discovery/discovery';
 import { ContactPage } from '../pages/contact/contact';
 import { MessagePage } from '../pages/message/message';
 import { ContactDetailPage } from '../pages/contact-detail/contact-detail';
+import { ScanResultPage } from '../pages/scan-result/scan-result';
 import { TabsPage } from '../pages/tabs/tabs';
+
+import { FirstCharFormatPipe } from '../pipes/first-char-format/first-char-format'
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -24,7 +27,9 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
     ContactPage,
     MessagePage,
     TabsPage,
-    ContactDetailPage
+    ContactDetailPage,
+    ScanResultPage,
+    FirstCharFormatPipe
   ],
   imports: [
     BrowserModule,
@@ -38,7 +43,8 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
     ContactPage,
     MessagePage,
     TabsPage,
-    ContactDetailPage
+    ContactDetailPage,
+    ScanResultPage
   ],
   providers: [
     StatusBar,

@@ -53,7 +53,9 @@
 			    <ion-avatar item-start>
 			       <img src="{{item.user.picture.thumbnail}}">
 			    </ion-avatar>
-			    {{item.user.name.last + ' ' + item.user.name.first}}
+			    {{item.user.name.last | firstCharFormat}}
+			    	{{' '}}
+			    {{item.user.name.first | firstCharFormat}}
 		    </button>
 	  	</ion-item-group>
 	</ion-list>
