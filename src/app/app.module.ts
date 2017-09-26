@@ -6,6 +6,7 @@ import { MyApp } from './app.component';
 import { DiscoveryPage } from '../pages/discovery/discovery';
 import { ContactPage } from '../pages/contact/contact';
 import { MessagePage } from '../pages/message/message';
+import { ContactDetailPage } from '../pages/contact-detail/contact-detail';
 import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -14,6 +15,7 @@ import { ContactsProvider } from '../providers/contacts/contacts';
 
 
 import { HttpModule } from '@angular/http';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,8 @@ import { HttpModule } from '@angular/http';
     DiscoveryPage,
     ContactPage,
     MessagePage,
-    TabsPage
+    TabsPage,
+    ContactDetailPage
   ],
   imports: [
     BrowserModule,
@@ -34,13 +37,15 @@ import { HttpModule } from '@angular/http';
     DiscoveryPage,
     ContactPage,
     MessagePage,
-    TabsPage
+    TabsPage,
+    ContactDetailPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    ContactsProvider
+    ContactsProvider,
+    BarcodeScanner
   ]
 })
 export class AppModule {}

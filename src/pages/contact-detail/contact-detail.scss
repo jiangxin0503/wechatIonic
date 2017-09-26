@@ -1,0 +1,38 @@
+page-contact-detail {
+  .toolbar-title-md{
+      text-align: center;
+  }
+  .bg-color{
+      background-color: #efeeee;
+  }
+  .top-list{
+	  margin-top: 15px;
+  }
+ .item-md ion-avatar img {
+	  border-radius: 5px;
+	  width: 80px;
+      height:80px;
+  }
+
+  .top-item{
+  	  height: 100px;
+  }
+
+  .top-item-account{
+  	color: #D3D3D3;
+  }
+
+  .item-album{
+    height: 90px;
+    line-height:25px;   
+    overflow:hidden;   
+  }
+
+  .contact-detail-btn{
+    margin-top: 15px;
+    margin-left:auto;
+    margin-right:auto;
+    width:95%;
+    border-radius:5px;
+  }
+}

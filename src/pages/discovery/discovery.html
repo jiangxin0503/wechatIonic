@@ -17,21 +17,18 @@
     <ion-list class="top-list">
         <button ion-item>
             <ion-avatar item-left>
-                <img src="../../assets/icon/friend-cycles.jpg">
+                <img src="../../assets/icon/friend-cycles.png">
             </ion-avatar>
             朋友圈
         </button>
     </ion-list>
 
     <ion-list>
-        <button ion-item>
+        <button ion-item (click)="onScan()">
             <ion-avatar item-left>
-                <img src="../../assets/icon/scan.jpg">
+                <img src="../../assets/icon/scan.png">
             </ion-avatar>          
             扫一扫
-        </button>
-        <button ion-item>
-            摇一摇
         </button>
     </ion-list>    
 </ion-content>

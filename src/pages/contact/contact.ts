@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams , App} from 'ionic-angular';
 import { ContactsProvider } from '../../providers/contacts/contacts';
+import { ContactDetailPage } from '../contact-detail/contact-detail';
 
 /**
  * Generated class for the ContactPage page.
@@ -20,8 +21,9 @@ export class ContactPage {
   contacts: Object[];
 
   constructor(public navCtrl: NavController, 
-  			  public navParams: NavParams,
-  			  private contactsProvider: ContactsProvider) {
+  			      public navParams: NavParams,
+  			      private contactsProvider: ContactsProvider,
+              public appCtrl: App) {
   }
 
   ionViewDidLoad() {
@@ -31,6 +33,13 @@ export class ContactPage {
         .then(result=> 
           {this.contacts = result;
            console.log(result)});
+  }
+
+
+  contactClicked(contact: Object) {
+    this.appCtrl.getRootNav().push(ContactDetailPage,{
+        contact: contact
+    });
   }
 
 }

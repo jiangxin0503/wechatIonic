@@ -49,7 +49,7 @@
 
 	    <ion-item-group>	
 	    	<ion-item-divider color="light">J</ion-item-divider>
-	  		<button ion-item *ngFor="let item of contacts">
+	  		<button ion-item *ngFor="let item of contacts" (click)="contactClicked(item)">
 			    <ion-avatar item-start>
 			       <img src="{{item.user.picture.thumbnail}}">
 			    </ion-avatar>
